@@ -66,6 +66,7 @@ function login() {
   padding: 10px;
   width: 100%;
   max-width: 250px;
+  font-size: 16px;
 }
 .auth__input:first-of-type {
   margin-bottom: 15px;
