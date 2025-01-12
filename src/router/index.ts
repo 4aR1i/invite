@@ -41,14 +41,9 @@ router.beforeEach((to, _, next) => {
 
   if (authStore.isAuthenticated && to.name === "Login") {
     next({ name: "Main" });
-  } else if (
-    (!authStore.isAuthenticated && to.name !== "Login") ||
-    (!authStore.isAuthenticated && to.name === "Login")
-  ) {
+  } else if (!authStore.isAuthenticated && to.name !== "Login") {
     next({ name: "Login" });
-  } else if (!isTimeNotOver && to.name === "TimeNotOver") {
-    next({ name: "Main" });
-  } else if ((isTimeNotOver && to.name !== "TimeNotOver") || (isTimeNotOver && to.name === "TimeNotOver")) {
+  } else if (isTimeNotOver && to.name !== "TimeNotOver") {
     next({ name: "TimeNotOver" });
   } else {
     next();
